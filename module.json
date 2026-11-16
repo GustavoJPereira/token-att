@@ -1,0 +1,25 @@
+{
+  "id": "token-por-hp",
+  "title": "Token por HP",
+  "description": "Armazena imagens de tokens por personagem e troca a arte conforme eventos: combate, HP e status.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Cravo"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.369"
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ]
+}

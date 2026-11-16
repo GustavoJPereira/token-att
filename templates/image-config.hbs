@@ -1,0 +1,14 @@
+<p class="hint">{{localize "TOKEN-POR-HP.Config.Hint"}}</p>
+{{#each groups}}
+<fieldset>
+  <legend>{{label}}</legend>
+  {{#each events}}
+  <div class="form-group">
+    <label>{{label}}</label>
+    <div class="form-fields">
+      <file-picker name="images.{{key}}" type="image" value="{{value}}"></file-picker>
+    </div>
+  </div>
+  {{/each}}
+</fieldset>
+{{/each}}

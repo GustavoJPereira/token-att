@@ -1,0 +1,73 @@
+import { MODULE_ID, EVENT_GROUPS, getImages } from "./events.js";
+
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+/** Janela para escolher a imagem do token de cada evento. */
+export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) {
+  constructor(actor, options = {}) {
+    super(options);
+    this.actor = actor;
+  }
+
+  static DEFAULT_OPTIONS = {
+    tag: "form",
+    classes: ["token-por-hp"],
+    position: { width: 560, height: "auto" },
+    window: { icon: "fa-solid fa-masks-theater", contentClasses: ["standard-form"] },
+    form: {
+      handler: TokenImageConfig.#onSubmit,
+      submitOnChange: false,
+      closeOnSubmit: true
+    }
+  };
+
+  static PARTS = {
+    form: { template: `modules/${MODULE_ID}/templates/image-config.hbs` },
+    footer: { template: "templates/generic/form-footer.hbs" }
+  };
+
+  // Uma janela por ator.
+  get id() {
+    return `${MODULE_ID}-config-${this.actor.id}`;
+  }
+
+  get title() {
+    return game.i18n.format("TOKEN-POR-HP.Config.Title", { name: this.actor.name });
+  }
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const images = getImages(this.actor);
+    context.groups = EVENT_GROUPS.map(group => ({
+      label: game.i18n.localize(`TOKEN-POR-HP.Group.${group.id}`),
+      events: group.events.map(key => ({
+        key,
+        label: game.i18n.localize(`TOKEN-POR-HP.Event.${key}`),
+        value: images[key] ?? ""
+      }))
+    }));
+    context.buttons = [
+      { type: "submit", icon: "fa-solid fa-floppy-disk", label: "TOKEN-POR-HP.Config.Save" }
+    ];
+    return context;
+  }
+
+  static async #onSubmit(event, form, formData) {
+    const { images } = foundry.utils.expandObject(formData.object);
+    await this.actor.setFlag(MODULE_ID, "images", images ?? {});
+  }
+}
+
+/** Adiciona o botão "Imagens do Token" no cabeçalho da ficha de ator. */
+export function registerSheetButton() {
+  Hooks.on("getHeaderControlsApplicationV2", (app, controls) => {
+    const actor = app.document;
+    if (!(actor instanceof foundry.documents.Actor) || !actor.isOwner) return;
+    controls.push({
+      icon: "fa-solid fa-masks-theater",
+      label: "TOKEN-POR-HP.Config.Button",
+      action: "tokenPorHpImages",
+      onClick: () => new TokenImageConfig(actor).render({ force: true })
+    });
+  });
+}

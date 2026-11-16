@@ -1,0 +1,24 @@
+{
+  "TOKEN-POR-HP.Settings.Threshold.Name": "Limiar de HP (%)",
+  "TOKEN-POR-HP.Settings.Threshold.Hint": "Abaixo ou igual a este percentual, usa a arte 'ferido'.",
+
+  "TOKEN-POR-HP.Config.Button": "Imagens do Token",
+  "TOKEN-POR-HP.Config.Title": "Imagens do Token: {name}",
+  "TOKEN-POR-HP.Config.Hint": "Escolha uma imagem para cada evento. Eventos sem imagem são ignorados.",
+  "TOKEN-POR-HP.Config.Save": "Salvar",
+
+  "TOKEN-POR-HP.Group.combat": "Combate",
+  "TOKEN-POR-HP.Group.hp": "HP",
+  "TOKEN-POR-HP.Group.status": "Status",
+
+  "TOKEN-POR-HP.Event.calm": "Fora de combate / normal (tranquilo)",
+  "TOKEN-POR-HP.Event.alert": "Dentro de combate (alerta)",
+  "TOKEN-POR-HP.Event.hp75": "HP abaixo de 75% (arranhado)",
+  "TOKEN-POR-HP.Event.hp50": "HP abaixo de 50% (meio ferido)",
+  "TOKEN-POR-HP.Event.hp25": "HP abaixo de 25% (muito ferido)",
+  "TOKEN-POR-HP.Event.unconscious": "Inconsciente (HP em 0%)",
+  "TOKEN-POR-HP.Event.disguised": "Disfarçado (óculos com bigode)",
+  "TOKEN-POR-HP.Event.frightened": "Assustado",
+  "TOKEN-POR-HP.Event.charmed": "Encantado",
+  "TOKEN-POR-HP.Event.invisible": "Invisível (destaque, como um recorte)"
+}

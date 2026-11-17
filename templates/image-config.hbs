@@ -1,14 +1,16 @@
-<p class="hint">{{localize "TOKEN-ATT.Config.Hint"}}</p>
-{{#each groups}}
-<fieldset>
-  <legend>{{label}}</legend>
-  {{#each events}}
-  <div class="form-group">
-    <label>{{label}}</label>
-    <div class="form-fields">
-      <file-picker name="images.{{key}}" type="image" value="{{value}}"></file-picker>
+<section class="token-att-form">
+  <p class="hint">{{localize "TOKEN-ATT.Config.Hint"}}</p>
+  {{#each groups}}
+  <fieldset>
+    <legend>{{label}}</legend>
+    {{#each events}}
+    <div class="form-group">
+      <label>{{label}}</label>
+      <div class="form-fields">
+        <file-picker name="images.{{key}}" type="image" value="{{value}}"></file-picker>
+      </div>
     </div>
-  </div>
+    {{/each}}
+  </fieldset>
   {{/each}}
-</fieldset>
-{{/each}}
+</section>

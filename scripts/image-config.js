@@ -13,7 +13,7 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
 
   static DEFAULT_OPTIONS = {
     tag: "form",
-    classes: ["token-por-hp"],
+    classes: ["token-att"],
     position: { width: 560, height: "auto" },
     window: { icon: "fa-solid fa-masks-theater", contentClasses: ["standard-form"] },
     form: {
@@ -34,7 +34,7 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
   }
 
   get title() {
-    return game.i18n.format("TOKEN-POR-HP.Config.Title", { name: this.actor.name });
+    return game.i18n.format("TOKEN-ATT.Config.Title", { name: this.actor.name });
   }
 
   async _prepareContext(options) {
@@ -42,15 +42,15 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
     const context = await super._prepareContext(options);
     const images = getImages(this.actor);
     context.groups = EVENT_GROUPS.map(group => ({
-      label: game.i18n.localize(`TOKEN-POR-HP.Group.${group.id}`),
+      label: game.i18n.localize(`TOKEN-ATT.Group.${group.id}`),
       events: group.events.map(key => ({
         key,
-        label: game.i18n.localize(`TOKEN-POR-HP.Event.${key}`),
+        label: game.i18n.localize(`TOKEN-ATT.Event.${key}`),
         value: images[key] ?? ""
       }))
     }));
     context.buttons = [
-      { type: "submit", icon: "fa-solid fa-floppy-disk", label: "TOKEN-POR-HP.Config.Save" }
+      { type: "submit", icon: "fa-solid fa-floppy-disk", label: "TOKEN-ATT.Config.Save" }
     ];
     return context;
   }
@@ -77,7 +77,7 @@ export function registerSheetButton() {
     log.debug("Adicionando botão na ficha de", actor.name);
     controls.push({
       icon: "fa-solid fa-masks-theater",
-      label: "TOKEN-POR-HP.Config.Button",
+      label: "TOKEN-ATT.Config.Button",
       action: "tokenPorHpImages",
       onClick: () => {
         log.debug("Botão clicado, abrindo janela para", actor.name);

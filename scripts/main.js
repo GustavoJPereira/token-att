@@ -4,13 +4,14 @@ import { log, registerDebugSetting } from "./logger.js";
 
 /* ---------- Configurações ---------- */
 Hooks.once("init", () => {
+  console.log("token att funcionando")
   registerDebugSetting();
   log.info("init");
   registerSheetButton();
 
   game.settings.register(MODULE_ID, "threshold", {
-    name: "TOKEN-POR-HP.Settings.Threshold.Name",
-    hint: "TOKEN-POR-HP.Settings.Threshold.Hint",
+    name: "TOKEN-ATT.Settings.Threshold.Name",
+    hint: "TOKEN-ATT.Settings.Threshold.Hint",
     scope: "world",
     config: true,
     type: Number,

@@ -1,4 +1,4 @@
-# Token por HP — contexto do projeto
+# Token Att — contexto do projeto
 
 Módulo do Foundry VTT (alvo: v14, verificado em 14.369). Idioma do projeto e da interface: português (pt-BR).
 
@@ -26,7 +26,7 @@ Vence o evento ativo de maior prioridade que tenha imagem; sem imagem, cai para 
 
 Feito:
 - Manifesto `module.json`, estrutura de pastas.
-- Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-por-hp.images.<chave>`. Ainda não testada no Foundry.
+- Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
 
 Pendente:
 - Lógica que troca `texture.src` do token conforme os eventos ativos e a prioridade, só se a imagem existir.
@@ -40,9 +40,9 @@ Pendente:
 - `scripts/events.js`: `MODULE_ID`, lista de grupos/eventos, `getImages(actor)`.
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.
-- `lang/pt-BR.json`: textos (chaves `TOKEN-POR-HP.*`).
+- `lang/pt-BR.json`: textos (chaves `TOKEN-ATT.*`).
 - `CONCEITO.md`: conceito v2 e tasklist.
-- `token-por-hp.md`: guia do conceito antigo (desatualizado, mantido como referência de API).
+- `token-att.md`: guia do conceito antigo (desatualizado, mantido como referência de API).
 
 ## Convenções
 

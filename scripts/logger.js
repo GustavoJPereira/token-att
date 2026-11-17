@@ -26,8 +26,8 @@ export const log = {
 
 export function registerDebugSetting() {
   game.settings.register(MODULE_ID, "debug", {
-    name: "TOKEN-POR-HP.Settings.Debug.Name",
-    hint: "TOKEN-POR-HP.Settings.Debug.Hint",
+    name: "TOKEN-ATT.Settings.Debug.Name",
+    hint: "TOKEN-ATT.Settings.Debug.Hint",
     scope: "client",
     config: true,
     type: Boolean,

@@ -1,4 +1,4 @@
-# Token por HP — conceito (v2)
+# Token Att — conceito (v2)
 
 Módulo que **armazena imagens de tokens por personagem** e permite que **eventos específicos** troquem a arte do token automaticamente. A troca só acontece se a imagem do estado existir.
 
@@ -38,4 +38,4 @@ Na ficha do personagem aparece um **botão extra** que abre uma janela com um ca
 
 - "Normal" e "tranquilo" foram tratados como o mesmo estado (padrão fora de combate).
 - Como detectar cada status (condições/efeitos do sistema) depende do sistema de jogo.
-- Onde guardar as imagens: sugestão de flags do ator (`flags.token-por-hp.images.<evento>`).
+- Onde guardar as imagens: sugestão de flags do ator (`flags.token-att.images.<evento>`).

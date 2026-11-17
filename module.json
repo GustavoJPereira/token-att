@@ -1,6 +1,6 @@
 {
   "id": "token-att",
-  "title": "Token por HP",
+  "title": "Token Att",
   "description": "Armazena imagens de tokens por personagem e troca a arte conforme eventos: combate, HP e status.",
   "version": "1.0.0",
   "authors": [
@@ -9,7 +9,7 @@
     }
   ],
   "compatibility": {
-    "minimum": "14",
+    "minimum": "1",
     "verified": "14.369"
   },
   "esmodules": [

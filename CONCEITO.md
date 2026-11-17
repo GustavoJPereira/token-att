@@ -29,10 +29,11 @@ Na ficha do personagem aparece um **botão extra** que abre uma janela com um ca
 
 ## Tasklist
 
-- [ ] Montar a tela para inserir as imagens dos tokens
-- [ ] Montar o código que muda as imagens somente se existirem
-- [ ] Reescrever `scripts/main.js` (hoje implementa o conceito antigo: duas artes + limiar único)
-- [ ] Atualizar `lang/pt-BR.json` com os textos da nova tela
+- [x] Montar a tela para inserir as imagens dos tokens
+- [x] Decisão da imagem (`scripts/resolver.js`) e aplicação (`scripts/token-image.js`), só se a imagem existir
+- [ ] Triggers além de HP: combate, status (efeitos), `createToken`
+- [x] Reescrever `scripts/main.js`
+- [x] Atualizar `lang/pt-BR.json` com os textos da nova tela
 
 ## Pontos em aberto
 

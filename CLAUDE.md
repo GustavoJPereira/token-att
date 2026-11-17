@@ -28,15 +28,18 @@ Feito:
 - Manifesto `module.json`, estrutura de pastas.
 - Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
 
+- Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com trigger de HP em `main.js`. Sem ator/token/imagem, nada é feito.
+
 Pendente:
-- Lógica que troca `texture.src` do token conforme os eventos ativos e a prioridade, só se a imagem existir.
-- `scripts/main.js` ainda tem a lógica do conceito antigo (flags `healthy`/`wounded`, limiar único). Deve ser substituída.
-- Detecção dos status (condições/efeitos), que depende do sistema de jogo.
+- Triggers de combate, de status (efeitos) e `createToken`.
+- Confirmar os ids de status por sistema (`STATUS_IDS` em `resolver.js`; "disfarçado" não é condição padrão).
 
 ## Arquivos
 
 - `module.json`: manifesto.
-- `scripts/main.js`: ponto de entrada (init, configuração, hooks; lógica antiga a reescrever).
+- `scripts/main.js`: ponto de entrada (init e hooks/triggers; hoje só HP).
+- `scripts/resolver.js`: decide a imagem (eventos ativos + `PRIORITY`). Não altera nada.
+- `scripts/token-image.js`: aplica a imagem no token (`refreshToken`, `refreshActorTokens`).
 - `scripts/events.js`: `MODULE_ID`, lista de grupos/eventos, `getImages(actor)`.
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.

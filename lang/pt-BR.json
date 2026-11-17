@@ -1,7 +1,4 @@
 {
-  "TOKEN-ATT.Settings.Threshold.Name": "Limiar de HP (%)",
-  "TOKEN-ATT.Settings.Threshold.Hint": "Abaixo ou igual a este percentual, usa a arte 'ferido'.",
-
   "TOKEN-ATT.Settings.Debug.Name": "Logs de depuração",
   "TOKEN-ATT.Settings.Debug.Hint": "Mostra mensagens detalhadas do módulo no console do navegador (F12).",
 

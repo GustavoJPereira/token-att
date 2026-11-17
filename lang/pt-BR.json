@@ -4,8 +4,7 @@
 
   "TOKEN-ATT.Config.Button": "Imagens do Token",
   "TOKEN-ATT.Config.Title": "Imagens do Token: {name}",
-  "TOKEN-ATT.Config.Hint": "Escolha uma imagem para cada evento. Eventos sem imagem são ignorados.",
-  "TOKEN-ATT.Config.Save": "Salvar",
+  "TOKEN-ATT.Config.Hint": "Escolha uma imagem para cada evento. Eventos sem imagem são ignorados. As alterações são salvas automaticamente.",
 
   "TOKEN-ATT.Group.combat": "Combate",
   "TOKEN-ATT.Group.hp": "HP",

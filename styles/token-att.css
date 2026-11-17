@@ -1,4 +1,4 @@
-/* Janela de imagens: só o formulário rola; o botão Salvar fica sempre visível. */
+/* Janela de imagens: o formulário rola quando a janela é pequena (salva automaticamente, sem botão). */
 .token-att.application {
   max-height: 90vh;
 }
@@ -13,8 +13,4 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
-}
-
-.token-att .form-footer {
-  flex: 0 0 auto;
 }

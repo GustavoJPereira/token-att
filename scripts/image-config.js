@@ -18,14 +18,13 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
     window: { icon: "fa-solid fa-masks-theater", contentClasses: ["standard-form"], resizable: true },
     form: {
       handler: TokenImageConfig.#onSubmit,
-      submitOnChange: false,
-      closeOnSubmit: true
+      submitOnChange: true, // salva automaticamente a cada imagem escolhida
+      closeOnSubmit: false
     }
   };
 
   static PARTS = {
-    form: { template: `modules/${MODULE_ID}/templates/image-config.hbs` },
-    footer: { template: "templates/generic/form-footer.hbs" }
+    form: { template: `modules/${MODULE_ID}/templates/image-config.hbs` }
   };
 
   // Uma janela por ator.
@@ -49,9 +48,6 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
         value: images[key] ?? ""
       }))
     }));
-    context.buttons = [
-      { type: "submit", icon: "fa-solid fa-floppy-disk", label: "TOKEN-ATT.Config.Save" }
-    ];
     return context;
   }
 

@@ -26,7 +26,7 @@ Vence o evento ativo de maior prioridade que tenha imagem; sem imagem, cai para 
 
 Feito:
 - Manifesto `module.json`, estrutura de pastas.
-- Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
+- Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento, salvando automaticamente a cada mudança (sem botão Salvar). Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
 
 - Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com triggers em `triggers.js`: HP, status (charmed e stunned, frightened, invisible, disguised, unconscious) e combate (início, fim, entrada/saída de combatente). Sem ator/token/imagem, nada é feito.
 
@@ -43,7 +43,7 @@ Pendente:
 - `scripts/events.js`: `MODULE_ID`, lista de grupos/eventos, `getImages(actor)`.
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.
-- `styles/token-att.css`: faz só o formulário rolar, mantendo o botão Salvar visível.
+- `styles/token-att.css`: faz o formulário rolar em janelas pequenas.
 - `lang/pt-BR.json`: textos (chaves `TOKEN-ATT.*`).
 - `CONCEITO.md`: conceito v2 e tasklist.
 - `token-att.md`: guia do conceito antigo (desatualizado, mantido como referência de API).

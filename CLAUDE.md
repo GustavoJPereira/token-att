@@ -28,18 +28,18 @@ Feito:
 - Manifesto `module.json`, estrutura de pastas.
 - Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
 
-- Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com trigger de HP em `main.js`. Sem ator/token/imagem, nada é feito.
+- Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com triggers em `triggers.js`: HP, status (charmed, frightened, invisible, disguised, unconscious) e combate (início, fim, entrada/saída de combatente). Sem ator/token/imagem, nada é feito.
 
 Pendente:
-- Triggers de combate, de status (efeitos) e `createToken`.
 - Confirmar os ids de status por sistema (`STATUS_IDS` em `resolver.js`; "disfarçado" não é condição padrão).
 
 ## Arquivos
 
 - `module.json`: manifesto.
-- `scripts/main.js`: ponto de entrada (init e hooks/triggers; hoje só HP).
+- `scripts/main.js`: ponto de entrada (init).
+- `scripts/triggers.js`: hooks que disparam a atualização (HP, status, combate).
 - `scripts/resolver.js`: decide a imagem (eventos ativos + `PRIORITY`). Não altera nada.
-- `scripts/token-image.js`: aplica a imagem no token (`refreshToken`, `refreshActorTokens`).
+- `scripts/token-image.js`: aplica a imagem no token (`refreshToken`, `refreshActorTokens`, `refreshSoon`); guarda a arte original em `flags.token-att.originalSrc` e a restaura quando nenhum evento tem imagem.
 - `scripts/events.js`: `MODULE_ID`, lista de grupos/eventos, `getImages(actor)`.
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.

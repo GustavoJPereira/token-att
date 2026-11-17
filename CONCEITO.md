@@ -31,7 +31,8 @@ Na ficha do personagem aparece um **botão extra** que abre uma janela com um ca
 
 - [x] Montar a tela para inserir as imagens dos tokens
 - [x] Decisão da imagem (`scripts/resolver.js`) e aplicação (`scripts/token-image.js`), só se a imagem existir
-- [ ] Triggers além de HP: combate, status (efeitos), `createToken`
+- [x] Triggers de HP, status (efeitos) e combate (`scripts/triggers.js`)
+- [ ] Trigger `createToken` (aplicar ao soltar o token na cena)
 - [x] Reescrever `scripts/main.js`
 - [x] Atualizar `lang/pt-BR.json` com os textos da nova tela
 

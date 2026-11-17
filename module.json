@@ -1,5 +1,5 @@
 {
-  "id": "token-por-hp",
+  "id": "token-att",
   "title": "Token por HP",
   "description": "Armazena imagens de tokens por personagem e troca a arte conforme eventos: combate, HP e status.",
   "version": "1.0.0",

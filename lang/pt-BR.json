@@ -2,6 +2,9 @@
   "TOKEN-POR-HP.Settings.Threshold.Name": "Limiar de HP (%)",
   "TOKEN-POR-HP.Settings.Threshold.Hint": "Abaixo ou igual a este percentual, usa a arte 'ferido'.",
 
+  "TOKEN-POR-HP.Settings.Debug.Name": "Logs de depuração",
+  "TOKEN-POR-HP.Settings.Debug.Hint": "Mostra mensagens detalhadas do módulo no console do navegador (F12).",
+
   "TOKEN-POR-HP.Config.Button": "Imagens do Token",
   "TOKEN-POR-HP.Config.Title": "Imagens do Token: {name}",
   "TOKEN-POR-HP.Config.Hint": "Escolha uma imagem para cada evento. Eventos sem imagem são ignorados.",

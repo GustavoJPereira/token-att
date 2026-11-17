@@ -1,4 +1,7 @@
-export const MODULE_ID = "token-por-hp";
+import { MODULE_ID } from "./constants.js";
+import { log } from "./logger.js";
+
+export { MODULE_ID };
 
 /** Grupos e eventos que possuem uma imagem de token. Ordem = ordem na tela. */
 export const EVENT_GROUPS = [
@@ -9,5 +12,7 @@ export const EVENT_GROUPS = [
 
 /** Lê as imagens salvas no ator: { calm: "caminho", ... } */
 export function getImages(actor) {
-  return actor.getFlag(MODULE_ID, "images") ?? {};
+  const images = actor.getFlag(MODULE_ID, "images") ?? {};
+  log.debug("getImages", actor.name, images);
+  return images;
 }

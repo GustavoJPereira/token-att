@@ -1,4 +1,5 @@
 import { MODULE_ID, EVENT_GROUPS, getImages } from "./events.js";
+import { log } from "./logger.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -7,6 +8,7 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
   constructor(actor, options = {}) {
     super(options);
     this.actor = actor;
+    log.debug("TokenImageConfig criado para", actor.name, actor.id);
   }
 
   static DEFAULT_OPTIONS = {
@@ -36,6 +38,7 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
   }
 
   async _prepareContext(options) {
+    log.debug("_prepareContext", this.actor.name);
     const context = await super._prepareContext(options);
     const images = getImages(this.actor);
     context.groups = EVENT_GROUPS.map(group => ({
@@ -54,20 +57,32 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
 
   static async #onSubmit(event, form, formData) {
     const { images } = foundry.utils.expandObject(formData.object);
-    await this.actor.setFlag(MODULE_ID, "images", images ?? {});
+    log.info("Salvando imagens de", this.actor.name, images);
+    try {
+      await this.actor.setFlag(MODULE_ID, "images", images ?? {});
+      log.debug("Imagens salvas");
+    } catch (err) {
+      log.error("Falha ao salvar imagens", err);
+      throw err;
+    }
   }
 }
 
 /** Adiciona o botão "Imagens do Token" no cabeçalho da ficha de ator. */
 export function registerSheetButton() {
+  log.debug("registerSheetButton: hook registrado");
   Hooks.on("getHeaderControlsApplicationV2", (app, controls) => {
     const actor = app.document;
     if (!(actor instanceof foundry.documents.Actor) || !actor.isOwner) return;
+    log.debug("Adicionando botão na ficha de", actor.name);
     controls.push({
       icon: "fa-solid fa-masks-theater",
       label: "TOKEN-POR-HP.Config.Button",
       action: "tokenPorHpImages",
-      onClick: () => new TokenImageConfig(actor).render({ force: true })
+      onClick: () => {
+        log.debug("Botão clicado, abrindo janela para", actor.name);
+        new TokenImageConfig(actor).render({ force: true });
+      }
     });
   });
 }

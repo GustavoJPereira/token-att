@@ -15,7 +15,7 @@ export class TokenImageConfig extends HandlebarsApplicationMixin(ApplicationV2) 
     tag: "form",
     classes: ["token-att"],
     position: { width: 560, height: "auto" },
-    window: { icon: "fa-solid fa-masks-theater", contentClasses: ["standard-form"] },
+    window: { icon: "fa-solid fa-masks-theater", contentClasses: ["standard-form"], resizable: true },
     form: {
       handler: TokenImageConfig.#onSubmit,
       submitOnChange: false,

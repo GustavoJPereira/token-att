@@ -1,0 +1,20 @@
+/* Janela de imagens: só o formulário rola; o botão Salvar fica sempre visível. */
+.token-att.application {
+  max-height: 90vh;
+}
+
+.token-att .window-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.token-att .token-att-form {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.token-att .form-footer {
+  flex: 0 0 auto;
+}

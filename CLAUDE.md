@@ -43,6 +43,7 @@ Pendente:
 - `scripts/events.js`: `MODULE_ID`, lista de grupos/eventos, `getImages(actor)`.
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.
+- `styles/token-att.css`: faz só o formulário rolar, mantendo o botão Salvar visível.
 - `lang/pt-BR.json`: textos (chaves `TOKEN-ATT.*`).
 - `CONCEITO.md`: conceito v2 e tasklist.
 - `token-att.md`: guia do conceito antigo (desatualizado, mantido como referência de API).

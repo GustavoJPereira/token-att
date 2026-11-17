@@ -28,7 +28,7 @@ Feito:
 - Manifesto `module.json`, estrutura de pastas.
 - Tela de imagens: botão "Imagens do Token" no cabeçalho da ficha do ator (hook `getHeaderControlsApplicationV2`), que abre um `ApplicationV2` com um `<file-picker>` por evento. Salva em `flags.token-att.images.<chave>`. Ainda não testada no Foundry.
 
-- Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com triggers em `triggers.js`: HP, status (charmed, frightened, invisible, disguised, unconscious) e combate (início, fim, entrada/saída de combatente). Sem ator/token/imagem, nada é feito.
+- Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com triggers em `triggers.js`: HP, status (charmed e stunned, frightened, invisible, disguised, unconscious) e combate (início, fim, entrada/saída de combatente). Sem ator/token/imagem, nada é feito.
 
 Pendente:
 - Confirmar os ids de status por sistema (`STATUS_IDS` em `resolver.js`; "disfarçado" não é condição padrão).

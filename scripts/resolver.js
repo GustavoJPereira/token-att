@@ -18,13 +18,13 @@ export const PRIORITY = [
   "invisible"
 ];
 
-/** Id do status (condição) do Foundry que ativa cada evento de status. */
+/** Ids dos status (condições) do Foundry que ativam cada evento de status. */
 export const STATUS_IDS = {
-  unconscious: "unconscious",
-  frightened: "frightened",
-  charmed: "charmed",
-  disguised: "disguised",
-  invisible: "invisible"
+  unconscious: ["unconscious"],
+  frightened: ["frightened"],
+  charmed: ["charmed", "stunned"], // atordoado usa a imagem de encantado
+  disguised: ["disguised"],
+  invisible: ["invisible"]
 };
 
 /** HP do ator: { value, max } ou null se o sistema não tiver HP válido. (dnd5e/pf2e: system.attributes.hp) */
@@ -68,8 +68,8 @@ export function getActiveEvents(tokenDoc) {
   }
 
   // Status (condições)
-  for (const [event, statusId] of Object.entries(STATUS_IDS)) {
-    if (actor.statuses?.has(statusId)) active.add(event);
+  for (const [event, statusIds] of Object.entries(STATUS_IDS)) {
+    if (statusIds.some(id => actor.statuses?.has(id))) active.add(event);
   }
 
   return active;

@@ -2,7 +2,7 @@ import { STATUS_IDS } from "./resolver.js";
 import { log } from "./logger.js";
 import { refreshToken, refreshActorTokens, refreshSoon } from "./token-image.js";
 
-const TRACKED_STATUSES = new Set(Object.values(STATUS_IDS));
+const TRACKED_STATUSES = new Set(Object.values(STATUS_IDS).flat());
 
 async function refreshCombatTokens(combat) {
   for (const combatant of combat.combatants) {

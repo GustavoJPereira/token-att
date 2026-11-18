@@ -19,7 +19,7 @@ Módulo que **armazena imagens de tokens por personagem** e permite que **evento
 
 ## Prioridade (da menor para a maior)
 
-invisível < disfarçado < normal < dentro de combate < HP (do maior para o menor: 75% < 50% < 25%) < assustado, encantado < inconsciente
+invisível < normal < combate < HP (do maior para o menor: 75% < 50% < 25%) < assustado < inconsciente < disfarçado < encantado
 
 Vence o evento ativo de maior prioridade **que tenha imagem definida**; se não houver imagem, cai para o próximo da lista.
 

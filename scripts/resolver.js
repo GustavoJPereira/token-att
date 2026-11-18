@@ -2,19 +2,19 @@ import { getImages } from "./events.js";
 import { log } from "./logger.js";
 
 /**
- * Prioridade dos eventos, da MAIOR para a MENOR (inverso do CONCEITO.md):
- * invisível < disfarçado < normal < combate < HP (75 < 50 < 25) < assustado, encantado < inconsciente
+ * Prioridade dos eventos, da MAIOR para a MENOR:
+ * invisível < normal < combate < HP (75 < 50 < 25) < assustado < inconsciente < disfarçado < encantado
  */
 export const PRIORITY = [
+  "charmed",
+  "disguised",
   "unconscious",
   "frightened",
-  "charmed",
   "hp25",
   "hp50",
   "hp75",
   "alert",
   "calm",
-  "disguised",
   "invisible"
 ];
 

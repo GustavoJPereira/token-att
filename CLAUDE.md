@@ -45,7 +45,7 @@ Pendente:
 - `scripts/image-config.js`: janela `TokenImageConfig` e `registerSheetButton()`.
 - `templates/image-config.hbs`: formulário da janela.
 - `styles/token-att.css`: faz o formulário rolar em janelas pequenas.
-- `lang/pt-BR.json`: textos (chaves `TOKEN-ATT.*`).
+- `lang/en.json` e `lang/pt-BR.json`: textos (chaves `TOKEN-ATT.*`).
 - `CONCEITO.md`: conceito v2 e tasklist.
 - `token-att.md`: guia do conceito antigo (desatualizado, mantido como referência de API).
 

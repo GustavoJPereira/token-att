@@ -1,0 +1,23 @@
+{
+  "TOKEN-ATT.Settings.Debug.Name": "Debug logs",
+  "TOKEN-ATT.Settings.Debug.Hint": "Shows detailed module messages in the browser console (F12).",
+
+  "TOKEN-ATT.Config.Button": "Token Images",
+  "TOKEN-ATT.Config.Title": "Token Images: {name}",
+  "TOKEN-ATT.Config.Hint": "Choose an image for each event. Events without an image are ignored. Changes are saved automatically.",
+
+  "TOKEN-ATT.Group.combat": "Combat",
+  "TOKEN-ATT.Group.hp": "HP",
+  "TOKEN-ATT.Group.status": "Status",
+
+  "TOKEN-ATT.Event.calm": "Out of combat / normal (calm)",
+  "TOKEN-ATT.Event.alert": "In combat (alert)",
+  "TOKEN-ATT.Event.hp75": "HP below 75% (scratched)",
+  "TOKEN-ATT.Event.hp50": "HP below 50% (half wounded)",
+  "TOKEN-ATT.Event.hp25": "HP below 25% (badly wounded)",
+  "TOKEN-ATT.Event.unconscious": "Unconscious (HP at 0%)",
+  "TOKEN-ATT.Event.disguised": "Disguised (glasses and mustache)",
+  "TOKEN-ATT.Event.frightened": "Frightened",
+  "TOKEN-ATT.Event.charmed": "Charmed",
+  "TOKEN-ATT.Event.invisible": "Invisible (highlighted, like a cutout)"
+}

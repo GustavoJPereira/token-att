@@ -31,5 +31,6 @@
   ],
   "styles": [
     "styles/token-att.css"
-  ]
+  ],
+  "license": "LICENSE"
 }

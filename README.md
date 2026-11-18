@@ -93,4 +93,4 @@ Em *Configurações → Módulos*, ligue **Debug logs** e abra o console do nave
 
 ## Licença
 
-Ainda não definida.
+[The Unlicense](LICENSE): domínio público. Você pode copiar, modificar, publicar, usar e vender este módulo para qualquer fim, sem pedir permissão e sem precisar dar crédito.

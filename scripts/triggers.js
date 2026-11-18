@@ -33,8 +33,10 @@ export function registerTriggers() {
     if (!game.user.isActiveGM) return;
     const actor = effect.parent;
     if (!(actor instanceof foundry.documents.Actor)) return;
-    if (!effect.statuses?.some(id => TRACKED_STATUSES.has(id))) return;
-    log.debug("trigger de status:", actor.name, [...effect.statuses]);
+    // effect.statuses é um Set (não tem .some)
+    const statuses = [...(effect.statuses ?? [])];
+    if (!statuses.some(id => TRACKED_STATUSES.has(id))) return;
+    log.debug("trigger de status:", actor.name, statuses);
     refreshSoon(() => refreshActorTokens(actor));
   };
   Hooks.on("createActiveEffect", onEffectChange);

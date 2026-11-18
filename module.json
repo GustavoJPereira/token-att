@@ -1,7 +1,7 @@
 {
   "id": "token-att",
   "title": "Token Att",
-  "description": "Armazena imagens de tokens por personagem e troca a arte conforme eventos: combate, HP e status.",
+  "description": "Stores token images per character and automatically swaps the token art based on events: combat, HP and status.",
   "version": "1.0.3",
   "download": "https://github.com/GustavoJPereira/token-att/releases/download/alpha4/token-att.zip",
   "manifest": "https://github.com/GustavoJPereira/token-att/releases/download/alpha/module.json",

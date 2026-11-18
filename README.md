@@ -1,96 +1,96 @@
 # Token Att
 
-Módulo para o [Foundry VTT](https://foundryvtt.com/) (v14) que **troca automaticamente a arte do token** conforme o que acontece com o personagem: combate, HP e status.
+A module for [Foundry VTT](https://foundryvtt.com/) (v14) that **automatically swaps a token's art** based on what happens to the character: combat, HP and status.
 
-Você escolhe, para cada personagem, uma imagem por evento. O módulo decide qual usar e só troca se a imagem existir. Se nenhum evento tiver imagem, o token volta para a arte original.
+For each character you pick one image per event. The module decides which one to use and only swaps if that image exists. If no event has an image, the token goes back to its original art.
 
-> **Aviso sobre o uso de IA:** parte do código deste módulo foi escrita com a ajuda de IA (Claude, da Anthropic, via Claude Code). O conceito, as regras e as decisões de design são do autor; o código gerado foi revisado e testado pelo autor no Foundry. Mesmo assim, pode conter erros. Se encontrar algum, abra uma issue.
+> **AI disclosure:** part of this module's code was written with the help of AI (Claude by Anthropic, via Claude Code). The concept, rules and design decisions are the author's; the generated code was reviewed and tested by the author in Foundry. It may still contain bugs. If you find one, please open an issue.
 
-## Como funciona
+## How it works
 
-1. Na ficha do personagem, clique em **Imagens do Token** (no menu do cabeçalho).
-2. Escolha uma imagem para cada evento, usando o seletor de arquivos padrão do Foundry (qualquer imagem já enviada ao Foundry serve). Tudo é salvo automaticamente.
-3. O módulo troca a arte dos tokens do personagem quando os eventos acontecem.
+1. On the character sheet, click **Token Images** (in the header menu).
+2. Choose an image for each event using Foundry's standard file picker (any image already uploaded to Foundry works). Everything is saved automatically.
+3. The module swaps the art of the character's tokens when the events happen.
 
-### Eventos
+### Events
 
-| Grupo | Evento | Quando |
+| Group | Event | When |
 |---|---|---|
-| Combate | Tranquilo | fora de combate / normal |
-| Combate | Alerta | token em um combate iniciado |
-| HP | Arranhado | HP abaixo de 75% |
-| HP | Meio ferido | HP abaixo de 50% |
-| HP | Muito ferido | HP abaixo de 25% |
-| HP | Inconsciente | HP em 0 |
-| Status | Disfarçado | status `disguised` |
-| Status | Assustado | status `frightened` |
-| Status | Encantado | status `charmed` ou `stunned` |
-| Status | Invisível | status `invisible` |
+| Combat | Calm | out of combat / normal |
+| Combat | Alert | token is in a started combat |
+| HP | Scratched | HP below 75% |
+| HP | Half wounded | HP below 50% |
+| HP | Badly wounded | HP below 25% |
+| HP | Unconscious | HP at 0 |
+| Status | Disguised | `disguised` status |
+| Status | Frightened | `frightened` status |
+| Status | Charmed | `charmed` or `stunned` status |
+| Status | Invisible | `invisible` status |
 
-O status `disguised` não existe no Foundry; o módulo o registra e ele aparece na lista de condições do token com o nome "Disguised".
+The `disguised` status doesn't exist in Foundry; the module registers it, and it shows up in the token's condition list as "Disguised".
 
-### Prioridade
+### Priority
 
-Quando mais de um evento está ativo, vence o de maior prioridade **que tenha imagem**:
+When more than one event is active, the highest-priority one **that has an image** wins:
 
-inconsciente > encantado > disfarçado > assustado > HP (25% > 50% > 75%) > alerta > tranquilo > invisível
+unconscious > charmed > disguised > frightened > HP (25% > 50% > 75%) > alert > calm > invisible
 
-A ordem fica em `PRIORITY`, em `scripts/resolver.js`, e é fácil de alterar.
+The order lives in `PRIORITY`, in `scripts/resolver.js`, and is easy to change.
 
-## O que dispara a troca
+## What triggers a swap
 
-- Mudança de HP (tokens vinculados e não vinculados).
-- Criação, remoção ou alteração de efeitos com os status acima.
-- Início e fim do combate, mudança de round e entrada/saída de combatentes.
+- HP changes (linked and unlinked tokens).
+- Creating, removing or changing effects with the statuses above.
+- Combat start and end, round changes, and combatants joining or leaving.
 
-Só o GM ativo altera tokens. Tokens sem ator, e atores sem tokens, são ignorados.
+Only the active GM changes tokens. Tokens without an actor, and actors without tokens, are ignored.
 
-## Instalação
+## Installation
 
-Por enquanto, manualmente: clone ou copie esta pasta para `Data/modules/token-att` (no Linux, `~/.local/share/FoundryVTT/Data/modules/`), reinicie o Foundry e ative o módulo no seu mundo.
+For now, manually: clone or copy this folder to `Data/modules/token-att` (on Linux, `~/.local/share/FoundryVTT/Data/modules/`), restart Foundry and enable the module in your world.
 
 ```bash
 cd ~/.local/share/FoundryVTT/Data/modules
 git clone https://github.com/GustavoJPereira/token-att.git
 ```
 
-## Compatibilidade
+## Compatibility
 
-- Foundry VTT v14 (verificado na 14.369).
-- O HP é lido de `system.attributes.hp`, como no dnd5e. Outros sistemas podem precisar de ajuste em `getHP` (`scripts/resolver.js`).
-- Os ids de status (`charmed`, `frightened`, etc.) seguem o dnd5e. Ajuste `STATUS_IDS` em `scripts/resolver.js` se o seu sistema usar outros.
+- Foundry VTT v14 (verified on 14.369).
+- HP is read from `system.attributes.hp`, as in dnd5e. Other systems may need changes to `getHP` (`scripts/resolver.js`).
+- Status ids (`charmed`, `frightened`, etc.) follow dnd5e. Adjust `STATUS_IDS` in `scripts/resolver.js` if your system uses different ones.
 
-## Estrutura
+## Structure
 
 ```
 token-att/
-├── module.json              manifesto
+├── module.json              manifest
 ├── scripts/
-│   ├── main.js              ponto de entrada
-│   ├── triggers.js          hooks que disparam a atualização
-│   ├── resolver.js          decide a imagem (eventos ativos + prioridade)
-│   ├── token-image.js       aplica a imagem no token
-│   ├── image-config.js      janela de escolha das imagens
-│   ├── statuses.js          registra o status "disguised"
-│   ├── events.js            lista de eventos e leitura das imagens
-│   ├── logger.js            logs no console
+│   ├── main.js              entry point
+│   ├── triggers.js          hooks that trigger updates
+│   ├── resolver.js          decides the image (active events + priority)
+│   ├── token-image.js       applies the image to the token
+│   ├── image-config.js      image selection window
+│   ├── statuses.js          registers the "disguised" status
+│   ├── events.js            event list and image lookup
+│   ├── logger.js            console logging
 │   └── constants.js
 ├── templates/image-config.hbs
 ├── styles/token-att.css
 └── lang/                    en.json, pt-BR.json
 ```
 
-As imagens ficam nas flags do ator: `flags.token-att.images.<evento>`.
+Images are stored in actor flags: `flags.token-att.images.<event>`.
 
-## Depuração
+## Debugging
 
-Em *Configurações → Módulos*, ligue **Debug logs** e abra o console do navegador (F12). As mensagens começam com `token-att |`.
+In *Settings → Module Settings*, turn on **Debug logs** and open the browser console (F12). Messages start with `token-att |`.
 
-## Ideias futuras
+## Future ideas
 
-- Aplicar a imagem ao soltar o token na cena (`createToken`).
-- Suporte a outros sistemas de jogo.
+- Apply the image when a token is dropped on the scene (`createToken`).
+- Support for other game systems.
 
-## Licença
+## License
 
-[The Unlicense](LICENSE): domínio público. Você pode copiar, modificar, publicar, usar e vender este módulo para qualquer fim, sem pedir permissão e sem precisar dar crédito.
+[The Unlicense](LICENSE): public domain. You may copy, modify, publish, use and sell this module for any purpose, without asking permission and without giving credit.

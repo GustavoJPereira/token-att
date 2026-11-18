@@ -31,7 +31,7 @@ Feito:
 - Decisão de imagem por token (`resolver.js`) e aplicação (`token-image.js`), com triggers em `triggers.js`: HP, status (charmed e stunned, frightened, invisible, disguised, unconscious) e combate (início, fim, entrada/saída de combatente). Sem ator/token/imagem, nada é feito.
 
 Pendente:
-- Confirmar os ids de status por sistema (`STATUS_IDS` em `resolver.js`; "disfarçado" não é condição padrão).
+- Confirmar os ids de status por sistema (`STATUS_IDS` em `resolver.js`; "disfarçado" é registrado pelo módulo em `statuses.js`).
 
 ## Arquivos
 

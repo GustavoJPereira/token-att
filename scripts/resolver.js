@@ -3,12 +3,12 @@ import { log } from "./logger.js";
 
 /**
  * Prioridade dos eventos, da MAIOR para a MENOR:
- * invisível < normal < combate < HP (75 < 50 < 25) < assustado < inconsciente < disfarçado < encantado
+ * invisível < normal < combate < HP (75 < 50 < 25) < assustado < disfarçado < encantado < inconsciente
  */
 export const PRIORITY = [
+  "unconscious",
   "charmed",
   "disguised",
-  "unconscious",
   "frightened",
   "hp25",
   "hp50",

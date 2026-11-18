@@ -19,7 +19,7 @@ O módulo **armazena imagens de tokens por personagem** e deixa **eventos espec�
 | Status | `charmed` | encantado |
 | Status | `invisible` | invisível (destaque, como um recorte) |
 
-**Prioridade (menor para maior):** invisível < normal < combate < HP (75 < 50 < 25) < assustado < inconsciente < disfarçado < encantado.
+**Prioridade (menor para maior):** invisível < normal < combate < HP (75 < 50 < 25) < assustado < disfarçado < encantado < inconsciente.
 Vence o evento ativo de maior prioridade que tenha imagem; sem imagem, cai para o próximo.
 
 ## Estado da implementação

@@ -4,7 +4,7 @@ import { log } from "./logger.js";
 const CUSTOM_STATUSES = [
   {
     id: "disguised",
-    name: "TOKEN-ATT.Status.disguised",
+    name: "Disguised",
     img: "icons/svg/mystery-man.svg"
   }
 ];
@@ -22,7 +22,7 @@ export function registerStatuses() {
         continue;
       }
       // CONFIG.statusEffects é um Proxy na v14: atribuir por id também o inclui na lista.
-      CONFIG.statusEffects[status.id] = { ...status, name: game.i18n.localize(status.name) };
+      CONFIG.statusEffects[status.id] = { ...status };
       log.info("Status registrado:", status.id);
     }
   });

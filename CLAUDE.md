@@ -37,6 +37,7 @@ Pendente:
 
 - `module.json`: manifesto.
 - `scripts/main.js`: ponto de entrada (init).
+- `scripts/statuses.js`: registra o status customizado `disguised` em `CONFIG.statusEffects`.
 - `scripts/triggers.js`: hooks que disparam a atualização (HP, status, combate).
 - `scripts/resolver.js`: decide a imagem (eventos ativos + `PRIORITY`). Não altera nada.
 - `scripts/token-image.js`: aplica a imagem no token (`refreshToken`, `refreshActorTokens`, `refreshSoon`); guarda a arte original em `flags.token-att.originalSrc` e a restaura quando nenhum evento tem imagem.

@@ -2,7 +2,7 @@
   "id": "token-att",
   "title": "Token Att",
   "description": "Stores token images per character and automatically swaps the token art based on events: combat, HP and status.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "download": "https://github.com/GustavoJPereira/token-att/releases/download/alpha4/token-att.zip",
   "manifest": "https://github.com/GustavoJPereira/token-att/releases/download/alpha/module.json",
   "authors": [
@@ -11,7 +11,7 @@
     }
   ],
   "compatibility": {
-    "minimum": "13",
+    "minimum": "1",
     "verified": "14.369"
   },
   "esmodules": [
